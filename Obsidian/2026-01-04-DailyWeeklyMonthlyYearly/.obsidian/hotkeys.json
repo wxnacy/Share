@@ -1,0 +1,20 @@
+{
+  "workspace:goto-tab-1": [],
+  "quickadd:choice:335138ea-997e-4a6b-acf4-86aed04ca625": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "2"
+    }
+  ],
+  "workspace:goto-tab-2": [],
+  "quickadd:choice:1bfa1cc0-cdff-4f48-a00d-f76fc5a06d6e": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "1"
+    }
+  ]
+}
