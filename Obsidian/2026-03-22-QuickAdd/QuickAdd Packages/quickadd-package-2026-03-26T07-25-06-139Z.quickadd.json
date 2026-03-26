@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "quickAddVersion": "2.12.0",
+  "createdAt": "2026-03-26T07:25:10.410Z",
+  "rootChoiceIds": [
+    "c359753c-69c5-490d-b36e-39cd767b676d",
+    "39055c4d-2231-4292-9515-3e9cd6bb8803",
+    "fa686199-6bcd-42cb-b088-5564c1289810",
+    "97726870-7d8b-4ee5-a4cd-1a80fcc8b069"
+  ],
+  "choices": [
+    {
+      "choice": {
+        "id": "c359753c-69c5-490d-b36e-39cd767b676d",
+        "name": "Play Record",
+        "type": "Multi",
+        "command": false,
+        "choices": [],
+        "collapsed": false
+      },
+      "pathHint": [
+        "Play Record"
+      ],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "39055c4d-2231-4292-9515-3e9cd6bb8803",
+        "name": "Capture：Add Task",
+        "type": "Capture",
+        "command": true,
+        "appendLink": false,
+        "captureTo": "日记/{{DATE:}}",
+        "captureToActiveFile": false,
+        "captureToCanvasNodeId": "",
+        "activeFileWritePosition": "cursor",
+        "createFileIfItDoesntExist": {
+          "enabled": true,
+          "createWithTemplate": true,
+          "template": "Templates/Daily.md"
+        },
+        "format": {
+          "enabled": true,
+          "format": " {{VALUE:你要添加的任务}}"
+        },
+        "insertAfter": {
+          "enabled": true,
+          "after": "### 今日目标",
+          "insertAtEnd": false,
+          "considerSubsections": false,
+          "createIfNotFound": false,
+          "createIfNotFoundLocation": "top",
+          "inline": false,
+          "replaceExisting": false,
+          "blankLineAfterMatchMode": "auto"
+        },
+        "newLineCapture": {
+          "enabled": false,
+          "direction": "below"
+        },
+        "prepend": false,
+        "task": true,
+        "openFile": false,
+        "fileOpening": {
+          "location": "tab",
+          "direction": "vertical",
+          "mode": "default",
+          "focus": true
+        },
+        "templater": {
+          "afterCapture": "none"
+        }
+      },
+      "pathHint": [
+        "Capture：Add Task"
+      ],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "fa686199-6bcd-42cb-b088-5564c1289810",
+        "name": "Template: Create Play Record",
+        "type": "Template",
+        "command": true,
+        "templatePath": "Templates/01-Create Play Record.md",
+        "fileNameFormat": {
+          "enabled": true,
+          "format": "{{DATE:}}-{{VALUE:year}}.{{VALUE:title}}"
+        },
+        "folder": {
+          "enabled": true,
+          "folders": [
+            "02-笔记/电视剧观看记录"
+          ],
+          "chooseWhenCreatingNote": false,
+          "createInSameFolderAsActiveFile": false,
+          "chooseFromSubfolders": false
+        },
+        "appendLink": {
+          "enabled": true,
+          "placement": "newLine",
+          "requireActiveFile": false,
+          "linkType": "link"
+        },
+        "openFile": true,
+        "fileOpening": {
+          "location": "tab",
+          "direction": "vertical",
+          "mode": "default",
+          "focus": true
+        },
+        "fileExistsMode": "Increment the file name",
+        "setFileExistsBehavior": true
+      },
+      "pathHint": [
+        "Template: Create Play Record"
+      ],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "97726870-7d8b-4ee5-a4cd-1a80fcc8b069",
+        "name": "Macro: Add Play Record",
+        "type": "Macro",
+        "command": true,
+        "runOnStartup": false,
+        "macro": {
+          "name": "Macro: Add Play Record",
+          "id": "452f75b3-4a6f-462d-a53e-27df11fd7c5d",
+          "commands": [
+            {
+              "name": "get_movie_frontmatter_from_current",
+              "type": "UserScript",
+              "id": "47cdce67-fc07-4021-a864-e1d08c1ce965",
+              "path": "Scripts/get_movie_frontmatter_from_current.js",
+              "settings": {}
+            },
+            {
+              "name": "Template: Create Play Record",
+              "type": "Choice",
+              "id": "9cb64aaa-0b82-44e5-96f9-ba4c73eeae3e",
+              "choiceId": "fa686199-6bcd-42cb-b088-5564c1289810"
+            }
+          ]
+        }
+      },
+      "pathHint": [
+        "Macro: Add Play Record"
+      ],
+      "parentChoiceId": null
+    }
+  ],
+  "assets": [
+    {
+      "kind": "user-script",
+      "originalPath": "Scripts/get_movie_frontmatter_from_current.js",
+      "contentEncoding": "base64",
+      "content": "bW9kdWxlLmV4cG9ydHMgPSBhc3luYyAocGFyYW1zKSA9PiB7CiAgICBjb25zdCB7IGFwcCwgcXVpY2tBZGRBcGkgfSA9IHBhcmFtczsKCiAgICAvLyAxLiDojrflj5blvZPliY3mtLvliqjmlofku7YKICAgIGNvbnN0IGFjdGl2ZUZpbGUgPSBhcHAud29ya3NwYWNlLmdldEFjdGl2ZUZpbGUoKTsKICAgIGlmICghYWN0aXZlRmlsZSkgewogICAgICAgIG5ldyBOb3RpY2UoIuKaoO+4jyDor7flhYjmiZPlvIDkuIDkuKrljIXlkKvlsZ7mgKfnmoTnrJTorrDvvIEiKTsKICAgICAgICB0aHJvdyBuZXcgRXJyb3IoIk5vIGFjdGl2ZSBmaWxlIik7CiAgICB9CgogICAgLy8gMi4g6K+75Y+W5paH5Lu255qEIEZyb250bWF0dGVyIChZQU1MIOWxnuaApykKICAgIGxldCBmaWxlTWV0YWRhdGEgPSB7fTsKICAgIGF3YWl0IGFwcC5maWxlTWFuYWdlci5wcm9jZXNzRnJvbnRNYXR0ZXIoYWN0aXZlRmlsZSwgKGZyb250bWF0dGVyKSA9PiB7CiAgICAgICAgLy8g5bCGIGZyb250bWF0dGVyIOWvueixoeWkjeWItuS4gOS7ve+8jOmBv+WFjeebtOaOpeS/ruaUueWOn+aWh+S7tgogICAgICAgIGZpbGVNZXRhZGF0YSA9IHsgLi4uZnJvbnRtYXR0ZXIgfTsKICAgIH0pOwoKICAgIC8vIDMuIOS7juWxnuaAp+S4reaPkOWPluaJgOmcgOeahOWtl+autQogICAgY29uc3QgdGl0bGUgPSBmaWxlTWV0YWRhdGFbJ+eJh+WQjSddIHx8IGZpbGVNZXRhZGF0YVsn5qCH6aKYJ107CiAgICBjb25zdCBkYXRlVmFsdWUgPSBmaWxlTWV0YWRhdGFbJ+S4iuaYoOaXpeacnyddIHx8IGZpbGVNZXRhZGF0YVsn5Ye654mI5pel5pyfJ10gfHwgIiI7CiAgICBjb25zdCB5ZWFyID0gKGRhdGVWYWx1ZSB8fCAiIikubWF0Y2goL1xkezR9Lyk/LlswXTsKICAgIGNvbnN0IHR5cGUgPSBmaWxlTWV0YWRhdGFbJ+WGheWuueexu+WeiyddOwoKICAgIC8vIDQu44CQ5paw5aKe44CR5qOA5p+l5omA5pyJ5b+F6ZyA55qE5a2X5q615piv5ZCm6YO95a2Y5ZyoCiAgICBjb25zdCBtaXNzaW5nRmllbGRzID0gW107CiAgICBpZiAoIXRpdGxlKSB7CiAgICAgICAgbWlzc2luZ0ZpZWxkcy5wdXNoKCLmoIfpopgo5oiW54mH5ZCNKSIpOwogICAgfQogICAgaWYgKCF5ZWFyKSB7CiAgICAgICAgbWlzc2luZ0ZpZWxkcy5wdXNoKCLlubTku70o5LuOJ+S4iuaYoOaXpeacnyfmiJYn5Ye654mI5pel5pyfJykiKTsKICAgIH0KICAgIGlmICghdHlwZSkgewogICAgICAgIG1pc3NpbmdGaWVsZHMucHVzaCgi5YaF5a6557G75Z6LIik7CiAgICB9CgogICAgLy8g5aaC5p6c5pyJ5a2X5q6157y65aSx77yM5YiZ5oql6ZSZ5bm25YGc5q2iCiAgICBpZiAobWlzc2luZ0ZpZWxkcy5sZW5ndGggPiAwKSB7CiAgICAgICAgY29uc3QgZXJyb3JNZXNzYWdlID0gYPCfm5Eg57y65bCR5b+F6KaB55qE5bGe5oCnOiAke21pc3NpbmdGaWVsZHMuam9pbignLCAnKX1gOwogICAgICAgIG5ldyBOb3RpY2UoZXJyb3JNZXNzYWdlKTsKICAgICAgICB0aHJvdyBuZXcgRXJyb3IoZXJyb3JNZXNzYWdlKTsKICAgIH0KCiAgICAvLyA1LiDlsIbmj5Dlj5bnmoTlgLzotYvnu5kgUXVpY2tBZGQg55qE5Y+Y6YePCiAgICBwYXJhbXMudmFyaWFibGVzLnRpdGxlID0gdGl0bGU7CiAgICBwYXJhbXMudmFyaWFibGVzLnllYXIgPSB5ZWFyOwogICAgcGFyYW1zLnZhcmlhYmxlcy50eXBlID0gdHlwZTsKCiAgICAvLyA2LiDmmL7npLrkuIDkuKrmj5DnpLrvvIznoa7orqTmj5Dlj5bmiJDlip8KICAgIG5ldyBOb3RpY2UoYOKchSDlt7Lmj5Dlj5Y6ICR7dGl0bGV9IHwgJHt5ZWFyfSB8ICR7dHlwZX1gKTsKfTsKCg=="
+    },
+    {
+      "kind": "template",
+      "originalPath": "Templates/01-Create Play Record.md",
+      "contentEncoding": "base64",
+      "content": "LS0tCuagh+mimDogInt7VkFMVUU6dGl0bGV9fSIK5YaF5a6557G75Z6LOiAie3tWQUxVRTp0eXBlfX0iCuW5tOS7vTogInt7VkFMVUU6eWVhcn19IgrlvIDlp4vml6XmnJ86IDwlIHRwLmRhdGUubm93KCJZWVlZLU1NLUREIikgJT4K57uT5p2f5pel5pyfOgrnirbmgIE6IOi/m+ihjOS4rQrop4LnnIvpgJTlvoQ6CuefreivhDoK6K+E5YiGOgotLS0KCiMjIOWunuaXtuaEn+WPlwoKCgojIyDkvJjngrkKCgoKIyMg57y654K5Cg=="
+    },
+    {
+      "kind": "capture-template",
+      "originalPath": "Templates/Daily.md",
+      "contentEncoding": "base64",
+      "content": "LS0tCuaXpeacnzogPCUgdHAuZGF0ZS5ub3coIllZWVktTU0tREQiKSAlPgrmnIg6IDwlIHRwLmRhdGUubm93KCJZWVlZLU1NIikgJT4K5ZGoOiA8JSB0cC5kYXRlLm5vdygiR0dHRy1XVyIpICU+CuWRqOaVsDogPCUgdHAuZGF0ZS5ub3coIldXIikgJT4KLS0tCgojIyMg5LuK5pel55uu5qCHCgoKCg=="
+    }
+  ]
+}
